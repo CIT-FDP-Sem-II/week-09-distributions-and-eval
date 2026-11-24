@@ -36,7 +36,7 @@ that no student's record contains. Look at the `distinct` column before you
 look at the mean — a column with four distinct values does not have a centre.
 
 **Which chart should you not trust?** `enrolments-by-month.png` is built from
-a column where 70 of 306 rows were genuinely ambiguous between UK and US date
+a column where 57 of 306 rows were genuinely ambiguous between UK and US date
 order. The chart is not wrong because of a bug. It is wrong because of
 something that happened before the data reached you, and the only honest fix
 is a caption.

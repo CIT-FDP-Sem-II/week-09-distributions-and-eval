@@ -48,16 +48,16 @@ python src/evaluate.py 10     # first 10 only
 
 ```
 column        n  missing  distinct      mean   median   shape
-final_grade 284       22       224     67.60     71.1   roughly symmetric
-age         300        6        28     30.52     30.0   roughly symmetric
-fee_paid    305        1         4  40400.00  48000.0   multimodal - only 4
+final_grade 278       28       206     68.52     68.0   roughly symmetric
+age         301        5        28     31.76     32.0   roughly symmetric
+fee_paid    305        1         3  45468.85  48000.0   multimodal - only 3
                                                         distinct values; the
                                                         mean is not a real one
 ```
 
-`fee_paid` has **four** distinct values: 25000, 32000, 48000, 55000. Its mean
-is 40,400 — a fee **no student pays**. It is not a centre; it is an artefact
-of averaging four price bands.
+`fee_paid` has **three** distinct values: 32000, 48000 and 55000 — one per
+course. Its mean is 45,468.85, a fee **no student pays**. It is not a centre;
+it is an artefact of averaging three price bands.
 
 This is why `describe()` is not enough. The `distinct` column catches it; the
 mean, median and standard deviation all look perfectly reasonable.
@@ -65,12 +65,12 @@ mean, median and standard deviation all look perfectly reasonable.
 ## The chart with a caption problem
 
 `charts/enrolments-by-month.png` shows enrolments per month. It is built from
-a column where **70 of 306 rows** had dates genuinely ambiguous between UK and
+a column where **57 of 306 rows** had dates genuinely ambiguous between UK and
 US order — `03/04/2025` is 3 April or 4 March and nothing in the data says
 which.
 
 No bug produced this. No better parser fixes it. The chart needs a caption
-saying 23% of rows may be in the wrong month, and that caption is the finding.
+saying 19% of rows may be in the wrong month, and that caption is the finding.
 
 ## The evaluation dataset: 10 covered, 10 not
 
